@@ -1,6 +1,6 @@
 {
   "name": "react-context-composer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Clean composition for Reacts new context API",
   "author": "Blaine Kasten<blainekasten@gmail.com>",
   "license": "MIT",
