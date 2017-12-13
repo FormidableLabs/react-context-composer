@@ -45,7 +45,7 @@ class ThemeToggler extends React.Component<
           Toggle theme
         </button>
         {this.props.children}
-      </ThemeContext.Provider>
+      </ContextComposer>
     );
   }
 }
