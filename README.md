@@ -1,6 +1,6 @@
 # react-context-composer
 
-React is proposing a new (Context API)[https://github.com/reactjs/rfcs/pull/2]. The API encourages composing. This utility component helps keep your code clean when your component will be rendering multiple Context Providers and Consumers.
+React is proposing a new [Context API](https://github.com/reactjs/rfcs/pull/2). The API encourages composing. This utility component helps keep your code clean when your component will be rendering multiple Context Providers and Consumers.
 
 ## Install
 
