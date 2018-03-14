@@ -55,7 +55,7 @@ function Title({children}) {
     <ContextComposer contexts={[ThemeContext, LanguageContext]}>
       {(theme, language) => (
         <h1 style={{ color: theme === 'light' ? '#000' : '#fff' }}>
-          {language}: {this.props.children}
+          {language}: {children}
         </h1>
       )}
     </ContextComposer>
