@@ -1,6 +1,6 @@
 /*
  * Reacts new context API encourages composing. But composing renderFns can get really long
- * This utility lets us implify our render methods by composing multiple contexts together
+ * This utility lets us simplify our render methods by composing multiple contexts together
  *
  * example:
  *
