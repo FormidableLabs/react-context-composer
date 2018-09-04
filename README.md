@@ -32,8 +32,8 @@ class ThemeToggler extends React.Component<
       // Pass the current context value to the Provider's `value` prop.
       // Changes are detected using strict comparison (Object.is)
       <ContextComposer contexts={[
-        <ThemeContext.Provider value={this.state.theme}>
-        <LanguageContext.Provider value={this.state.language}>
+        <ThemeContext.Provider value={this.state.theme} />
+        <LanguageContext.Provider value={this.state.language} />
       ]}>
         <button
           onClick={() => {
