@@ -40,6 +40,18 @@ describe('composing providers', () => {
     );
     expect(renderer.toJSON()).toMatchSnapshot();
   });
+  test('does not mutate contexts array', () => {
+    TestRenderer.create(
+      <ContextComposer
+        contexts={Object.freeze([
+          <Theme.Provider value="themeBar" />,
+          <Language.Provider value="langFoo" />
+        ])}
+      >
+        <div />
+      </ContextComposer>
+    );
+  });
 });
 
 describe('composing consumers', () => {
@@ -71,5 +83,12 @@ describe('composing consumers', () => {
       </Language.Provider>
     );
     expect(render.mock.calls).toMatchSnapshot();
+  });
+  test('does not mutate contexts array', () => {
+    TestRenderer.create(
+      <ContextComposer contexts={Object.freeze([Theme, Language])}>
+        {() => null}
+      </ContextComposer>
+    );
   });
 });

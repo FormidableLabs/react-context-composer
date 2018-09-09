@@ -43,7 +43,7 @@ export default function ContextComposer({contexts, children}) {
       );
     }
 
-    return curry(contexts.reverse());
+    return curry(contexts.slice().reverse());
 
   // Compose Providers
   } else {
