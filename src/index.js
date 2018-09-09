@@ -47,11 +47,11 @@ export default function ContextComposer({contexts, children}) {
 
   // Compose Providers
   } else {
-    return contexts.reduce((res, context, i) => {
-      return React.cloneElement(context, {
-        children: context[i + 1] || children,
+    return contexts.reduceRight((children, parent, i) => {
+      return React.cloneElement(parent, {
+        children,
       });
-    });
+    }, children);
   }
 }
 
