@@ -26,6 +26,10 @@ export default function ContextComposer({contexts, children}) {
   if (typeof children === 'function') {
     const curriedContexts = [];
     const curry = (currentContexts) => {
+      if (!currentContexts.length) {
+        return children(...curriedContexts);
+      }
+
       const Context = currentContexts.pop();
 
       return (
@@ -33,9 +37,7 @@ export default function ContextComposer({contexts, children}) {
           {(providedContext) => {
             curriedContexts.push(providedContext);
 
-            return currentContexts.length
-              ? curry(currentContexts)
-              : children(...curriedContexts);
+            return curry(currentContexts);
           }}
         </Context.Consumer>
       );
