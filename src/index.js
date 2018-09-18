@@ -55,6 +55,15 @@ export default function ContextComposer({contexts, children}) {
   }
 }
 
+// This is a loose check which is sufficient for duck-typing Context objects but is not sound for
+// general use.
+// We do _not_ want to duplicate the internals of react-is (which has `isContextConsumer` and
+// `isContextProvider`) here, nor worry about only importing it in development builds.
+const reactOpaqueComponent = PropTypes.oneOfType([
+  PropTypes.object,
+  PropTypes.func
+]);
+
 ContextComposer.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
@@ -65,8 +74,8 @@ ContextComposer.propTypes = {
     PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.shape({
-        Provider: PropTypes.func.isRequired,
-        Consumer: PropTypes.func.isRequired
+        Provider: reactOpaqueComponent.isRequired,
+        Consumer: reactOpaqueComponent.isRequired
       }),
     ])
   ).isRequired,
