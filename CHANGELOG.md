@@ -1,3 +1,7 @@
+# @next
+
+- Setup CI (@blainekasten)
+
 # 0.0.4
 
 - Improve documentation (@motiz88)
