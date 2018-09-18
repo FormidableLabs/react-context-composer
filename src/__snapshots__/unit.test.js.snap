@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`composing consumers [Theme, Language] 1`] = `
+Array [
+  Array [
+    "themeBar",
+    "langFoo",
+  ],
+]
+`;
+
+exports[`composing consumers [Theme] 1`] = `
+Array [
+  Array [
+    "themeBar",
+  ],
+]
+`;
+
+exports[`composing consumers empty array 1`] = `
+Array [
+  Array [],
+]
+`;
+
+exports[`composing providers [Theme, Language] 1`] = `
+Array [
+  "Theme: themeBar",
+  ",",
+  "Language: langFoo",
+]
+`;
+
+exports[`composing providers [Theme] 1`] = `"Theme: themeBar"`;
+
+exports[`composing providers empty array 1`] = `<div />`;

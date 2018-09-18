@@ -26,6 +26,10 @@ export default function ContextComposer({contexts, children}) {
   if (typeof children === 'function') {
     const curriedContexts = [];
     const curry = (currentContexts) => {
+      if (!currentContexts.length) {
+        return children(...curriedContexts);
+      }
+
       const Context = currentContexts.pop();
 
       return (
@@ -33,23 +37,21 @@ export default function ContextComposer({contexts, children}) {
           {(providedContext) => {
             curriedContexts.push(providedContext);
 
-            return currentContexts.length
-              ? curry(currentContexts)
-              : children(...curriedContexts);
+            return curry(currentContexts);
           }}
         </Context.Consumer>
       );
     }
 
-    return curry(contexts.reverse());
+    return curry(contexts.slice().reverse());
 
   // Compose Providers
   } else {
-    return contexts.reduce((res, context, i) => {
-      return React.cloneElement(context, {
-        children: context[i + 1] || children,
+    return contexts.reduceRight((children, parent, i) => {
+      return React.cloneElement(parent, {
+        children,
       });
-    });
+    }, children);
   }
 }
 
