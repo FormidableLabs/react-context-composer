@@ -15,9 +15,7 @@
     "test": "jest",
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "prepublish": "npm run build",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "prepublish": "npm run build"
   },
   "dependencies": {},
   "peerDependencies": {
