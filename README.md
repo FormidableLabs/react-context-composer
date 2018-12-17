@@ -1,12 +1,24 @@
-# react-context-composer
+# DEPRECATED
+
+With the advent of React's new hooks feature, this package has little value. Instead of rendering your contexts, you can use the react hook to access it in the function definition. An example:
+
+```js
+import { useContext } from 'react';
+import { ContextA, ContextB, ContextC } from './contexts';
+
+function Component() {
+  const a = useContext(ContextA);
+  const b = useContext(ContextB);
+  const c = useContext(ContextC);
+  
+  return (<...>);
+}
+```
+
+
+## react-context-composer 
 
 React 16.3 shipped a new [Context API](https://reactjs.org/docs/context.html). The API encourages composition. This utility component helps keep your code clean when your component will be rendering multiple Context Providers and Consumers.
-
-## Install
-
-```bash
-npm install --save react-context-composer
-```
 
 ## Usage
 
